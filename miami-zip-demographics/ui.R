@@ -7,7 +7,7 @@ demographics = colnames(df_zip_demographics)[2:9]
 
 shinyUI(fluidPage(
 
-  titlePanel("Explore Miami-Fort Lauderdale-West Palm Beach, Florida Demographics"),
+  titlePanel("Explore the Demographics of Miami, Florida"),
 
   fluidRow(column(12, includeMarkdown("1.md"))),
 
@@ -26,9 +26,6 @@ shinyUI(fluidPage(
     mainPanel(
       plotOutput("map"),
       plotOutput("boxplot")
-    ),
-    
-#    fluidRow(column(12, includeMarkdown("1.md")))
-    
+    )
   )
 ))
