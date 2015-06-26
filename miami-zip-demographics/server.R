@@ -17,6 +17,11 @@ library(choroplethrZip)
 shinyServer(function(input, output) {
   
   output$map = renderPlot({
+    # add a progress bar
+    progress = shiny::Progress$new()
+    on.exit(progress$close())
+    progress$set(message = "Creating image. Please wait.", value = 0)
+    
     df_zip_demographics$value = df_zip_demographics[, input$value]
     num_colors = as.numeric(input$num_colors)
     zip_choropleth(df_zip_demographics, 
@@ -25,6 +30,11 @@ shinyServer(function(input, output) {
   })
   
   output$boxplot = renderPlot({
+    # add a progress bar
+    progress = shiny::Progress$new()
+    on.exit(progress$close())
+    progress$set(message = "Creating image. Please wait.", value = 0)
+    
     df_zip_demographics$value = df_zip_demographics[, input$value]
     boxplot(df_zip_demographics$value)
   })
